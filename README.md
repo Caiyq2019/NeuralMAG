@@ -204,13 +204,6 @@ Model Training Visualizations |  |
 
 ## License
 
-本项目在Apache License (Version 2.0)下分发。
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-详情请见 [Apache License](LINK_TO_YOUR_LICENSE).
-
-
-### Report an Issue
-
-- 技术或文档问题，请在 [GitHub Issues](YOUR_GITHUB_ISSUES_LINK) 提交。
-- 安全问题，请发送邮件至 <a href =
 
