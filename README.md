@@ -196,10 +196,23 @@ Model Training Visualizations |  |
 
 
 
-## Documentation
+## Paper Citation
 
-- [Paper Citation](LINK_TO_YOUR_DOCUMENTATION)
-- [API参考](LINK_TO_YOUR_DOCUMENTATION)
+```
+
+@Article{,
+ AUTHOR = {, , , },
+ TITLE = { },
+ JOURNAL = {  },
+ VOLUME = {},
+ YEAR = {2024},
+ NUMBER = {},
+ ARTICLE-NUMBER = {},
+ URL = {https://www.},
+ DOI = {10.}
+}
+
+```
 
 
 ## License
