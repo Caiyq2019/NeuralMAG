@@ -149,6 +149,8 @@ This command facilitates the setup of comparative analyses for micromagnetic fil
 
 This assessment elucidates the potential for efficiency gains and performance enhancements through the adoption of deep learning and acceleration technologies in micromagnetic simulation workflows.
 
+### standproblem
+
 
 ### Data Generation and Model Training Process
 
@@ -193,13 +195,10 @@ Adjust the volume of training data with `--ntrain` and set the test dataset size
 To apply the trained model to micromagnetic simulations, replace the existing model at `./egs/NMI/ckpt/k16/model.pt` with the newly trained model.
 
 #### Model Training Visualizations
- Training loss example | output Hd RGB | output Hd vector
+ Training loss | Input(spin) and output(Hd) data RGB | Input(spin) and output(Hd) data vector
 :-----------------------------:|:-----------------------------:|:-----------------------------:
-![Training loss example](./figs/loss_ex1.0-1.png) | ![Layer 1 RGB output after training](./figs/epoch820_L1_rgb.png) | ![Layer 1 Vector output after training](./figs/epoch820_L1_vec.png)
+![Training loss example](./figs/loss_ex1.0.png) | ![Layer 1 RGB output after training](./figs/epoch820_L1_rgb.png) | ![Layer 1 Vector output after training](./figs/epoch820_L1_vec.png)
 
-
-
-### standproblem
 
 
 
