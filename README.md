@@ -83,7 +83,7 @@ To replicate the MH experimental results detailed in the manuscript, please use 
 ./egs/NMI/MH_evaluate/runMH.sh
 ```
 
-This script facilitates the adjustment of the film's dimensions via the `--width` parameter and is configured to test 18 unique combinations of magnetic property parameters:
+This script facilitates the adjustment of the film's dimensions via the `--width` parameter and is configured to test 13 unique combinations of magnetic property parameters:
 
 - `--Ms` for saturation magnetization, with values: {1200, 1000, 800, 600, 400} (in arbitrary units),
 - `--Ku` for uniaxial anisotropy constant, with values: {1e5, 2e5, 3e5, 4e5} (in arbitrary units),
@@ -96,11 +96,11 @@ The `--mask` parameter specifies the shape of the magnetic film, which can inclu
 - Films of random polygonal shapes.
 
 
-#### Sample Result Images
+#### Sample MH result Images
 
 Triangular film MH result | Film with a central hole MH result | Random polygonal film MH result
 :-------------------------:|:-----------------------------------:|:---------------------------------:
-![Triangular film MH result](MH_triangle.png) | ![Film with a central hole MH result](MH_hole.png) | ![Random polygonal film MH result](MH_square.png)
+![Triangular film](./figs/MH_triangle.png) | ![Film with a central hole](./figs/MH_hole.png) | ![Random polygonal film](./figs/MH_square.png)
 
 
 ### Running Vortex Simulations
