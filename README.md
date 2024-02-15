@@ -173,14 +173,13 @@ For data inspection and analysis, a visualization utility is provided:
 Executing this script produces visual representations of the dataset, showcasing magnetic vector fields, RGB imagery, and histograms of numerical statistics, thereby facilitating a comprehensive overview of the training data's characteristics.
 
 #### Sample: Data Visualization 
-demagnetizing field vector | demagnetizing field RGB | demagnetizing field histogram 
-:-----------------------------------------:|:---------------------------------------:|:--------------------------------------:
-![demagnetizing field vector](./figs/Hds_vector.png) | ![demagnetizing field RGB](./figs/Hds_rgb.png)| ![demagnetizing field histogram](./figs/Hd_hist.png)
-
 Spin vector | Spins RGB | Spin histogram 
 :-----------------------------------------:|:---------------------------------------:|:--------------------------------------:
 ![Spins RGB](./figs/Spins_vector.png) | ![Spin vector](./figs/Spins_rgb.png) | ![Spin histogram](./figs/Spins_hist.png)
 
+demagnetizing field vector | demagnetizing field RGB | demagnetizing field histogram 
+:-----------------------------------------:|:---------------------------------------:|:--------------------------------------:
+![demagnetizing field vector](./figs/Hds_vector.png) | ![demagnetizing field RGB](./figs/Hds_rgb.png)| ![demagnetizing field histogram](./figs/Hd_hist.png)
 
 #### Model Training
 
@@ -197,7 +196,7 @@ To apply the trained model to micromagnetic simulations, replace the existing mo
 #### Sample: Model Training Visualizations
  Training loss | Input(spin) and output(Hd) data RGB | Input(spin) and output(Hd) data vector
 :-----------------------------:|:-----------------------------:|:-----------------------------:
-![Training loss example](./figs/loss_ex1.0.png) | ![Layer 1 RGB output after training](./figs/epoch820_L1_rgb.png) | ![Layer 1 Vector output after training](./figs/epoch820_L1_vec.png)
+![Training loss example](./figs/loss.png) | ![Layer 1 RGB output after training](./figs/train_L1_rgb.png) | ![Layer 1 Vector output after training](./figs/train_L1_vec.png)
 
 
 
