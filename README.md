@@ -55,10 +55,9 @@ Contains the core libraries of the project:
 #### Utilities (`./utils`)
 
 This directory includes scripts for data generation, essential for training the Unet model:
-- Scripts generate (spin, Hdemag) pair data required for Unet training.
+- Scripts generate the Magnetic spin & Demagnetizing field data pairs \( \vec{m}, H_{\text{demag}} \) required for Unet training.
 
 By following these instructions, users can set up the necessary environment to run simulations, replicate study findings, or train the Unet model with custom data.
-
 
 
 ## Example Execution
