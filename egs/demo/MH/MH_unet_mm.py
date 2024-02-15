@@ -80,7 +80,7 @@ def update_spin_fft(model, Hext, args):
 
     return error_rcd, itern
 
-def update_spin_unet(model, Hext, error_mm, args):
+def update_spin_unet(model, Hext, args):
     """
     Update the spin state of the model.
     """
@@ -95,7 +95,7 @@ def update_spin_unet(model, Hext, error_mm, args):
         error_rcd = np.append(error_rcd, error)
         
         # fluctation error break condition
-        if itern > 20000 and error_mm <= 1.0e-5:
+        if itern > 20000:
             error_fluc = np.abs(error_rcd[-2000:].mean() - error_rcd[-500:].mean()) / error_rcd[-2000:].mean()
             if error_fluc < 0.02 and error < 1.0e-4:
                 print('Unet error not decreasing! Break.')
@@ -244,7 +244,7 @@ if __name__ == '__main__':
 
         # Update spin state
         error1_rcd, itern1 = update_spin_fft(film1, Hext, args)
-        error2_rcd, itern2 = update_spin_unet(film2, Hext, error1_rcd[-1], args)
+        error2_rcd, itern2 = update_spin_unet(film2, Hext, args)
 
         # get spin and Hd
         spin_mm = film1.Spin.detach().cpu().numpy()
