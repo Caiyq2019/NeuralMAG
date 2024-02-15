@@ -160,7 +160,7 @@ The dataset referenced in our study is generated via:
 ./utils/run.sh
 ```
 
-The script automatically generates datasets in four sizes: 32, 64, 96, and 128. The first three sizes are for cross-scale training, while the 128 size assesses generalization across scales. Each size's dataset is developed under three conditions: a default square shape, and two scenarios involving random shape masks for augmentation, each additionally subjected to two magnitudes of external magnetic fields. Therefore, each size features three conditions with 100 samples each, facilitating a comprehensive evaluation of the model's robustness and scalability.
+The script automatically generates datasets in four sizes: 32, 64, 96, and 128. The first three sizes are for cross-scale training, while the 128 size assesses generalization across scales. Each size's dataset is developed under three conditions: a default square shape, and two scenarios involving random shape masks for augmentation, each additionally subjected to two magnitudes of external magnetic fields. Therefore, each size features three conditions with 100 cases each, facilitating a comprehensive evaluation of the model's robustness and scalability.
 
 For data inspection and analysis, a visualization utility is provided:
 
@@ -170,11 +170,14 @@ For data inspection and analysis, a visualization utility is provided:
 
 Executing this script produces visual representations of the dataset, showcasing magnetic vector fields, RGB imagery, and histograms of numerical statistics, thereby facilitating a comprehensive overview of the training data's characteristics.
 
+#### Data Visualization Samples 
+demagnetizing field vector | demagnetizing field RGB | demagnetizing field histogram 
+:-----------------------------------------:|:---------------------------------------:|:--------------------------------------:
+![demagnetizing field vector](./figs/Hds_vector.png) | ![demagnetizing field RGB](./figs/Hds_rgb.png)| ![demagnetizing field histogram](./figs/Hd_hist.png)
 
-Data Visualization Samples |  | 
-:-------------------------:|:-------------------------:
-![demagnetizing field vector](Hds_vector.png) | ![demagnetizing field RGB](Hd_rgb.png)| ![demagnetizing field histogram](Hd_hist.png)
-![Spins RGB](Spins_rgb.png) | ![Spin vector](Spins_vector.png) | ![Spin histogram](Spins_hist.png)
+Spin vector | Spins RGB | Spin histogram 
+:-----------------------------------------:|:---------------------------------------:|:--------------------------------------:
+![Spins RGB](./figs/Spins_vector.png) | ![Spin vector](./figs/Spins_rgb.png) | ![Spin histogram](./figs/Spins_hist.png)
 
 
 #### Model Training
@@ -189,10 +192,10 @@ Adjust the volume of training data with `--ntrain` and set the test dataset size
 
 To apply the trained model to micromagnetic simulations, replace the existing model at `./egs/NMI/ckpt/k16/model.pt` with the newly trained model.
 
-
-Model Training Visualizations |  | 
-:-----------------------------:|:-----------------------------:
-![Training loss example](loss_ex1.0-1.png) | ![Layer 1 RGB output after training](epoch820_L1_rgb.png) | ![Layer 1 Vector output after training](epoch820_L1_vec.png)
+#### Model Training Visualizations
+ Training loss example | output Hd RGB | output Hd vector
+:-----------------------------:|:-----------------------------:|:-----------------------------:
+![Training loss example](./figs/loss_ex1.0-1.png) | ![Layer 1 RGB output after training](./figs/epoch820_L1_rgb.png) | ![Layer 1 Vector output after training](./figs/epoch820_L1_vec.png)
 
 
 
