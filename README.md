@@ -7,7 +7,12 @@
 
 The NeuralMAG Project is an open-source neural network framework designed for micromagnetic simulation. It employs a multi-scale U-Net neural network model to learn the physical relationship between magnetization states and demagnetizing fields, effectively extending traditional micromagnetic simulations into the realm of advanced deep learning frameworks. This approach fully leverages the cutting-edge technologies available on deep learning platforms.
 
-![alt text](framework.png)
+<div align="center">
+<figure>
+    <img src="figs/framework.png" width="500" height="300">
+</figure>
+</div>
+
 
 The project finds wide application in the study of magnetic materials among other areas.
 
@@ -29,7 +34,7 @@ Ensure your system meets the following prerequisites:
 
 - **Python Version**: 3.9.0
 - **PyTorch Version**: 2.0.1 with CUDA 11.7 support
-- **Additional Dependencies**: Refer to the `requirements.txt` file for a complete list of required libraries and their versions.
+- **Additional Dependencies**: For a complete list of required libraries and their versions, refer to the [`requirements.txt`](./requirements.txt) file.
 
 ### Usage Instructions
 
