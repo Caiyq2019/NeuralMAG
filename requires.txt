@@ -1,0 +1,11 @@
+torch==2.0.1+cu117
+torchvision==0.15.2+cu117
+numpy==1.26.1
+matplotlib==3.8.0
+opencv-python==4.6.0
+torch-tensorrt==1.4.0
+tqdm==4.66.1
+Pillow==10.0.1
+
+
+
