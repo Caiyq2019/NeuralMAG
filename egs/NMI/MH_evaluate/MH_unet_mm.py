@@ -80,7 +80,7 @@ def update_spin_fft(model, Hext, args):
 
     return error_rcd, itern
 
-def update_spin_unet(model, Hext, error_mm, args):
+def update_spin_unet(model, Hext, args):
     """
     Update the spin state of the model.
     """
