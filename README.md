@@ -43,14 +43,14 @@ Ensure your system meets the following prerequisites:
 This directory houses sample tasks, including:
 - **NMI**: Replicates the main experimental results presented in the manuscript.
 - **Demo**: Contains code for quick experimentation and familiarization with the tool. 
-- **Checkpoint**: Pre-trained Unet model parameters used in the manuscript are located in `./egs/NMI/ckpt/k16`,`./egs/demo/ckpt/k16`.
+- **Checkpoint**: Pre-trained Unet model parameters used in the manuscript are located in [`Checkpoint`](./egs/NMI/ckpt/k16)
 
 #### Libraries (`./libs`)
 
 Contains the core libraries of the project:
-- Traditional micromagnetic simulation frameworks based on RK4 and LLG equations.
-- Unet neural network model architecture.
-- Auxiliary functions pertinent to this project.
+- Traditional micromagnetic simulation frameworks based on RK4 and LLG equations[`MAG2305`](./libs/MAG2305.py).
+- Unet neural network model architecture[`Unet`](./libs/Unet.py).
+- Auxiliary functions pertinent to this project[`misc`](./libs/misc.py).
 
 #### Utilities (`./utils`)
 
