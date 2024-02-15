@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="500px" src="https://github.com/Caiyq2019/NN-MAG/blob/ad4c2cff5ade3bc209df62c28ca67bf96ff424a8/figs/magsimu.png"/>
+  <img width="500px" src="./figs/logol.png"/>
 </div>
 
 
