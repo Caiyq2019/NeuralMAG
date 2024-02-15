@@ -123,13 +123,13 @@ For exact replication of the manuscript's vortex simulation outcomes, utilize:
 ./egs/NMI/vortex_evaluate/run.sh
 ```
 
-This script provides a detailed evaluation of Unet's prediction accuracy across initial vortex counts (`--pre_core=5,10,20”), comparing results from 100 dynamical experiments per test condition to assess Unet's performance.
+This script provides a detailed evaluation of Unet's prediction accuracy across initial vortex counts `--pre_core=5,10,20`, comparing results from 100 dynamical experiments per test condition to assess Unet's performance.
 
-#### Sample Result Images
+#### Sample Vortex Simulations Result Images
 
 Varying Materials | Random Shapes | Square Films
 :-----------------------------------------:|:---------------------------------------:|:--------------------------------------:
-![Varying Materials](vortex_rdparam.png) | ![Random Shapes](vortex_rdshape.png) | ![Square Films](vortex_square.png)
+![Varying Materials](./figs/vortex_rdparam.png) | ![Random Shapes](./figs/vortex_rdshape.png) | ![Square Films](./figs/vortex_square.png)
 
 
 
