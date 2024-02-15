@@ -96,7 +96,7 @@ The `--mask` parameter specifies the shape of the magnetic film, which can inclu
 - Films of random polygonal shapes.
 
 
-#### Sample MH result Images
+#### Sample: MH result Images
 
 Triangular film MH result | Film with a central hole MH result | Random polygonal film MH result
 :-------------------------:|:-----------------------------------:|:---------------------------------:
@@ -125,7 +125,7 @@ For exact replication of the manuscript's vortex simulation outcomes, utilize:
 
 This script provides a detailed evaluation of Unet's prediction accuracy across initial vortex counts `--pre_core=5,10,20`, comparing results from 100 dynamical experiments per test condition to assess Unet's performance.
 
-#### Sample Vortex Simulations Result Images
+#### Sample: Vortex Simulations Result Images
 
 Varying Materials | Random Shapes | Square Films
 :-----------------------------------------:|:---------------------------------------:|:--------------------------------------:
@@ -172,7 +172,7 @@ For data inspection and analysis, a visualization utility is provided:
 
 Executing this script produces visual representations of the dataset, showcasing magnetic vector fields, RGB imagery, and histograms of numerical statistics, thereby facilitating a comprehensive overview of the training data's characteristics.
 
-#### Data Visualization Samples 
+#### Sample: Data Visualization 
 demagnetizing field vector | demagnetizing field RGB | demagnetizing field histogram 
 :-----------------------------------------:|:---------------------------------------:|:--------------------------------------:
 ![demagnetizing field vector](./figs/Hds_vector.png) | ![demagnetizing field RGB](./figs/Hds_rgb.png)| ![demagnetizing field histogram](./figs/Hd_hist.png)
@@ -194,7 +194,7 @@ Adjust the volume of training data with `--ntrain` and set the test dataset size
 
 To apply the trained model to micromagnetic simulations, replace the existing model at `./egs/NMI/ckpt/k16/model.pt` with the newly trained model.
 
-#### Model Training Visualizations
+#### Sample: Model Training Visualizations
  Training loss | Input(spin) and output(Hd) data RGB | Input(spin) and output(Hd) data vector
 :-----------------------------:|:-----------------------------:|:-----------------------------:
 ![Training loss example](./figs/loss_ex1.0.png) | ![Layer 1 RGB output after training](./figs/epoch820_L1_rgb.png) | ![Layer 1 Vector output after training](./figs/epoch820_L1_vec.png)
