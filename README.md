@@ -34,7 +34,7 @@ Hardware requirements
 - **GPU**: Nvidia RTX-3090
 
 Ensure your system meets the following prerequisites:
-- **Linux**: Ubuntu 20.04.6
+- **Linux**: Ubuntu 20.04.6, Ubuntu 22.04
 - **Python Version**: 3.9.0
 - **PyTorch Version**: 2.0.1 with CUDA 11.7 support
 - **Additional Dependencies**: For a complete list of required libraries and their versions, refer to the [`requirements.txt`](./requirements.txt) file.
