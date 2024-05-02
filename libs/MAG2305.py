@@ -2,11 +2,6 @@
 """
 Created on Thu Nov 24 21:38:01 2022
 
-Author: Li Jiangnan
-        Kunming University of Science and Technology (KUST)
-
-Email : li-jiangnan@kust.edu.cn
-
 -------------------
 
 MAG2305 : An FDM-FFT micromagnetic simulator
