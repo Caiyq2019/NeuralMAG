@@ -31,12 +31,12 @@ The project finds wide application in the study of magnetic materials among othe
 ### Installation Requirements
 
 Hardware requirements
-- **GPU**: Nvidia RTX-3090
+- **GPU**: Nvidia GTX 1070 or above (Nvidia RTX-3090 or above for TensorRT)
 
 Ensure your system meets the following prerequisites:
-- **Linux**: Ubuntu 20.04.6, Ubuntu 22.04
-- **Python Version**: 3.9.0
-- **PyTorch Version**: 2.0.1 with CUDA 11.7 support
+- **Linux**: Ubuntu 20.04.6, Ubuntu 22.04 or above
+- **Python Version**: 3.9.0 or above
+- **PyTorch Version**: 2.0.1 with CUDA 11.7 support or above
 - **Additional Dependencies**: For a complete list of required libraries and their versions, refer to the [`requirements.txt`](./requirements.txt) file.
 
 ### Usage Instructions
