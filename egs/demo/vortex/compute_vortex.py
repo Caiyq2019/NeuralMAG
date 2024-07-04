@@ -177,7 +177,15 @@ if __name__ == '__main__':
     parser.add_argument('--nsamples',   type=int,    default=100,       help='sample number (default: 1)')
     args = parser.parse_args()
     
-    device = torch.device("cuda:{}".format(args.gpu))
+    #device = torch.device("cuda:{}".format(args.gpu))
+    
+    if torch.cuda.is_available():
+        device = torch.device(f"cuda:{args.gpu}")
+        print(f"Using GPU: {device}")
+    else:
+        device = torch.device("cpu")
+        print("No GPU available, using CPU")
+        
 
     # create two film models
     film1, film2, test_model, path0 = initialize_models(args)
