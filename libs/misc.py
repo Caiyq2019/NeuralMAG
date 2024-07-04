@@ -4,7 +4,7 @@ import cv2
 import re, sys
 import torch
 import argparse
-import torch_tensorrt
+
 
 def initial_spin_prepare(width, layers, rand_seed):
     """
@@ -292,14 +292,18 @@ def winding_density(spin_batch):
 
 
 def create_trt_model(model, inch, w, dtype_item, device):
-    print('create trt-model size {}'.format(w))
-    trt_model = torch_tensorrt.compile(
-        model, 
-        inputs=[torch_tensorrt.Input((1,inch,w,w), dtype=torch.float32)],
-        enabled_precisions = {dtype_item},
-        device=device
+    if torch.cuda.is_available() and "cuda" in str(device):
+        import torch_tensorrt
+        print('create trt-model size {}'.format(w))
+        trt_model = torch_tensorrt.compile(
+            model, 
+            inputs=[torch_tensorrt.Input((1, inch, w, w), dtype=torch.float32)],
+            enabled_precisions={dtype_item},
+            device=device
         )
-    return trt_model
+        return trt_model
+    else:
+        raise RuntimeError("CUDA is not available or device is not a CUDA device.")
 
 
 
