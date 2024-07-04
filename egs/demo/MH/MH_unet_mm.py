@@ -207,7 +207,14 @@ if __name__ == '__main__':
     parser.add_argument('--mask',        type=MaskTp, default=False,     help='mask (default: False)')
     args = parser.parse_args() 
     
-    device = torch.device("cuda:{}".format(args.gpu))
+    #device = torch.device("cuda:{}".format(args.gpu))
+    
+    if torch.cuda.is_available():
+        device = torch.device(f"cuda:{args.gpu}")
+        print(f"Using GPU: {device}")
+    else:
+        device = torch.device("cpu")
+        print("No GPU available, using CPU")
 
     # create two film models
     film1, film2 = initialize_models(args)
