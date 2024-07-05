@@ -27,6 +27,7 @@ The project finds wide application in the study of magnetic materials among othe
 
 
 ## Getting Started
+[Open in Colab](https://colab.research.google.com/drive/1pkMr3nKDTahF18YcVCAmAgQty6JefGa8?usp=drive_link)
 
 ### Installation Requirements
 
