@@ -27,7 +27,6 @@ The project finds wide application in the study of magnetic materials among othe
 
 
 ## Getting Started
-[Open in Colab](https://colab.research.google.com/drive/1pkMr3nKDTahF18YcVCAmAgQty6JefGa8?usp=sharing)
 
 ### Installation Requirements
 
@@ -65,6 +64,8 @@ By following these instructions, users can set up the necessary environment to r
 
 
 ## Example Execution
+
+[Quick Trial in Colab](https://colab.research.google.com/drive/1pkMr3nKDTahF18YcVCAmAgQty6JefGa8?usp=sharing)
 
 ### Running MH Simulations
 
