@@ -26,14 +26,14 @@ do
                                     --error_min 1.0e-5 \
                                     --dtime 5.0e-13 \
                                     --max_iter 150000 \
-                                    --pre_core 10 \
+                                    --InitCore 10 \
                                     --nsamples 800
 
     python ./analyze_vortex.py --w $size \
                                --split $(($size/2)) \
                                --method unet \
                                --errorfilter 1e-4 \
-                               --pre_core 10
+                               --InitCore 10
 done
 
 python ./plot_phase_diagram.py --method fft
