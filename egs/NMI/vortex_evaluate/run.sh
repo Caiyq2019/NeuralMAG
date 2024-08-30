@@ -6,12 +6,12 @@ export PYTHONPATH=$(dirname $(dirname $(dirname $(pwd)))):$PYTHONPATH
 
 size=32
 
-for pre_core in 5 10 20; do
+for InitCore in 5 10 20; do
     python ./compute_vortex.py --w $size \
                                --layers 2 \
                                --krn 16 \
                                --split 32 \
-                               --pre_core $pre_core \
+                               --InitCore $InitCore \
                                --error_min 1.0e-5 \
                                --dtime 5.0e-13 \
                                --max_iter 150000 \
@@ -20,6 +20,6 @@ for pre_core in 5 10 20; do
     python ./analyze_vortex.py --w $size \
                                --krn 16 \
                                --split 32 \
-                               --pre_core $pre_core \
+                               --InitCore $InitCore \
                                --errorfilter 1e-4
 done
