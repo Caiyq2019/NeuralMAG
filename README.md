@@ -120,7 +120,7 @@ To commence a micromagnetic dynamical analysis based on the LLG (Landau-Lifshitz
 ./egs/demo/vortex/run.sh
 ```
 
-This command initiates a simulation applying FFT (Fast Fourier Transform) until the vortex count meets the `--pre_core` parameter's specification, whereupon Unet modeling commences. The `--pre_core` parameter signifies the initial vortex count for transitioning from FFT to Unet simulation.
+This command initiates a simulation applying FFT (Fast Fourier Transform) until the vortex count meets the `--InitCore` parameter's specification, whereupon Unet modeling commences. The `--InitCore` parameter signifies the initial vortex count for transitioning from FFT to Unet simulation.
 
 #### Replication of Published Results
 
@@ -130,7 +130,7 @@ For exact replication of the manuscript's vortex simulation outcomes, utilize:
 ./egs/NMI/vortex_evaluate/run.sh
 ```
 
-This script provides a detailed evaluation of Unet's prediction accuracy across initial vortex counts `--pre_core=5,10,20`, comparing results from 100 dynamical experiments per test condition to assess Unet's performance.
+This script provides a detailed evaluation of Unet's prediction accuracy across initial vortex counts `--InitCore=5,10,20`, comparing results from 100 dynamical experiments per test condition to assess Unet's performance.
 
 #### Sample: Vortex Simulations Result Images
 
