@@ -154,7 +154,7 @@ if __name__ == '__main__':
     Summary-- Statistic_samples [{}/{}] Unet k{} mm {} size {} split {} 
               Unet_core_precision: [ core_number {:.4f} / core_property {:.4f} ]\n
               errorfilter: {:.1e}, avg  mm_steps: {}, un_steps: [{} / {}] = {:.1f} %,  
-    '''.format(converge_sample_count, sample_count, args.krn, args., args.w, args.split, 
+    '''.format(converge_sample_count, sample_count, args.krn, args.InitCore, args.w, args.split, 
                core_match/(converge_sample_count+1e-8), 
                exact_match/(converge_sample_count+1e-8),
                args.errorfilter, int(np.array(steps_mm).mean()), int(np.array(steps_un_start).mean()), int(np.array(steps_un).mean()),
