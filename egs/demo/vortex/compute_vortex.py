@@ -40,7 +40,7 @@ def load_unet_model(args):
 def initialize_models(args):
     # Model shape and save model
     test_model = create_model(args.w, args.modelshape)
-    path0 = "./k{}/size{}/".format(args.krn, args.w)+"pre_core{}/".format(args.pre_core)
+    path0 = "./k{}/size{}/".format(args.krn, args.w)+"InitCore{}/".format(args.InitCore)
     os.makedirs(path0, exist_ok=True)
     np.save(path0 + 'model', test_model[:,:,0])
 
@@ -92,7 +92,7 @@ def update_spin_state(film1, film2, Hext, args, test_model, path):
         spin_2305 = film1.Spin.cpu().numpy()
 
         #MAG calculate few steps before unet
-        if wind_abs > args.pre_core:
+        if wind_abs > args.InitCore:
             error_unet = film2.SpinLLG_RK4(Hext=Hext, dtime=args.dtime, damping=0.1)
             spin_unet = film2.Spin.cpu().numpy()
             _, wind_abs, _ = get_winding(spin_unet[:,:,0], test_model[:,:,0])
@@ -101,7 +101,7 @@ def update_spin_state(film1, film2, Hext, args, test_model, path):
             error_unet = film2.SpinLLG_RK4_unetHd(Hext=Hext, dtime=args.dtime, damping=0.1)
             spin_unet = film2.Spin.cpu().numpy()
 
-            #plot figure when wind_abs <= args.pre_core
+            #plot figure when wind_abs <= args.InitCore
             if first_iteration:
                 nplot = iters
                 first_iteration = False  # Set the flag to False after the first iteration
@@ -113,7 +113,7 @@ def update_spin_state(film1, film2, Hext, args, test_model, path):
             rcd_dspin_2305 = np.append(rcd_dspin_2305, [[iters], [error_2305]], axis=1)
             rcd_dspin_unet = np.append(rcd_dspin_unet, [[iters], [error_unet]], axis=1)
 
-            if wind_abs <= args.pre_core:
+            if wind_abs <= args.InitCore:
                 rcd_dspin_unet_ = np.append(rcd_dspin_unet_, [[iters], [error_unet]], axis=1)
     
             wind_dens_2305, wind_abs_2305, wind_sum_2305 = get_winding(spin_2305[:,:,0],
@@ -158,7 +158,7 @@ if __name__ == '__main__':
     parser.add_argument('--w',          type=int,    default=32,        help='MAG model size (default: 32)')
     parser.add_argument('--layers',     type=int,    default=2,         help='MAG model layers (default: 1)')
     parser.add_argument('--split',      type=int,    default=32,        help='MAG model split (default: 1)')
-    parser.add_argument('--pre_core',   type=int,    default=10000,     help='MAG model pre_core (default: 0)')
+    parser.add_argument('--InitCore',   type=int,    default=10000,     help='MAG model InitCore (default: 0)')
     parser.add_argument('--modelshape', type=str,    default='square',  help='MAG model shape: square, circle, triangle')
     
     parser.add_argument('--Ms',         type=float,  default=1000,      help='MAG model Ms (default: 1000)')
