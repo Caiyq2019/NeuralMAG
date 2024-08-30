@@ -25,12 +25,12 @@ if __name__ == '__main__':
     parser.add_argument('--krn',         type=int,    default=16,        help='MAG model kernel (default: 3)')
     parser.add_argument('--layers',      type=int,    default=2,         help='MAG model layers (default: 1)')
     parser.add_argument('--split',       type=int,    default=32,        help='MAG model split (default: 2)')
-    parser.add_argument('--pre_core',    type=int,    default=0,         help='MAG model pre_core (default: 0)')
+    parser.add_argument('--InitCore',    type=int,    default=0,         help='MAG model InitCore (default: 0)')
     parser.add_argument('--errorfilter', type=float,  default=1e-5,      help='MAG model errorlimit (default: 0.1)')
     args = parser.parse_args()
 
     #dir 
-    path0 = "./k{}/size{}/".format(args.krn, args.w)+"pre_core{}/".format(args.pre_core)
+    path0 = "./k{}/size{}/".format(args.krn, args.w)+"InitCore{}/".format(args.InitCore)
 
 
     converge_sample_count = 0
@@ -151,10 +151,10 @@ if __name__ == '__main__':
 
 
     content = '''
-    Summary-- Statistic_samples [{}/{}] Unet k{} mmPre_core {} size {} split {} 
+    Summary-- Statistic_samples [{}/{}] Unet k{} mm {} size {} split {} 
               Unet_core_precision: [ core_number {:.4f} / core_property {:.4f} ]\n
               errorfilter: {:.1e}, avg  mm_steps: {}, un_steps: [{} / {}] = {:.1f} %,  
-    '''.format(converge_sample_count, sample_count, args.krn, args.pre_core, args.w, args.split, 
+    '''.format(converge_sample_count, sample_count, args.krn, args., args.w, args.split, 
                core_match/(converge_sample_count+1e-8), 
                exact_match/(converge_sample_count+1e-8),
                args.errorfilter, int(np.array(steps_mm).mean()), int(np.array(steps_un_start).mean()), int(np.array(steps_un).mean()),
@@ -199,9 +199,9 @@ if __name__ == '__main__':
     ax.set_ylabel("state counts")
     ax.set_ylim(0, 100)
     ax.legend()
-    ax.set_title("Model mmPre_core{} size {} split {} \n corenumber{:.4f}_coreproperty{:.4f}".format(args.pre_core, args.w, args.split, core_match/(converge_sample_count+1e-8), exact_match/(converge_sample_count+1e-8)), fontsize=10)
-    plt.savefig(path_save+"mmPre_core{}_size{}_split{}_corenumber{:.4f}_coreproperty{:.4f}_error{:.1e}.png".format(
-                    args.pre_core, args.w, args.split, 
+    ax.set_title("Model mm{} size {} split {} \n corenumber{:.4f}_coreproperty{:.4f}".format(args., args.w, args.split, core_match/(converge_sample_count+1e-8), exact_match/(converge_sample_count+1e-8)), fontsize=10)
+    plt.savefig(path_save+"mm{}_size{}_split{}_corenumber{:.4f}_coreproperty{:.4f}_error{:.1e}.png".format(
+                    args., args.w, args.split, 
                     core_match/(converge_sample_count+1e-8), exact_match/(converge_sample_count+1e-8),
                     args.errorfilter)
                )
