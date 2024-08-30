@@ -21,14 +21,14 @@ from util.vortex_utils import *
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Unet speed test method: LLG_RK4')    
     parser.add_argument('--w',           type=int,    default=32,        help='MAG model size (default: 32)')
-    parser.add_argument('--pre_core',    type=int,    default=0,         help='MAG model pre_core (default: 0)')
+    parser.add_argument('--InitCore',    type=int,    default=0,         help='MAG model InitCore (default: 0)')
     parser.add_argument('--split',       type=int,    default=1,         help='MAG model split (default: 1)')
     parser.add_argument('--method',      type=str,    default="fft",     help='calculation method (default: fft)')
     parser.add_argument('--errorfilter', type=float,  default=1.0e-5,    help='error_convergence (default: 1.0e-5)')
     args = parser.parse_args()
 
     #dir 
-    path0 = "./{}/size{}/".format(args.method, args.w)+"pre_core{}/".format(args.pre_core)
+    path0 = "./{}/size{}/".format(args.method, args.w)+"InitCore{}/".format(args.InitCore)
 
 
     converge_sample_count = 0
@@ -75,9 +75,9 @@ if __name__ == '__main__':
 
 
     content = '''
-    Summary-- Statistic_samples [{}/{}] method {} mmPre_core {} size {} split {},  
+    Summary-- Statistic_samples [{}/{}] method {} mmInitCore {} size {} split {},  
               single domain: {:.3f}, single vortex: {:.3f}, multi-vortices: {:.3f}
-    '''.format(converge_sample_count, sample_count, args.method, args.pre_core, args.w, args.split, 
+    '''.format(converge_sample_count, sample_count, args.method, args.InitCore, args.w, args.split, 
                single_domain/(converge_sample_count+1e-8), 
                single_vortex/(converge_sample_count+1e-8), 
                multi_vortex/(converge_sample_count+1e-8)
