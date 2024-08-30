@@ -199,7 +199,7 @@ if __name__ == '__main__':
     ax.set_ylabel("state counts")
     ax.set_ylim(0, 100)
     ax.legend()
-    ax.set_title("Model mm{} size {} split {} \n corenumber{:.4f}_coreproperty{:.4f}".format(args., args.w, args.split, core_match/(converge_sample_count+1e-8), exact_match/(converge_sample_count+1e-8)), fontsize=10)
+    ax.set_title("Model mm{} size {} split {} \n corenumber{:.4f}_coreproperty{:.4f}".format(args.InitCore, args.w, args.split, core_match/(converge_sample_count+1e-8), exact_match/(converge_sample_count+1e-8)), fontsize=10)
     plt.savefig(path_save+"mm{}_size{}_split{}_corenumber{:.4f}_coreproperty{:.4f}_error{:.1e}.png".format(
                     args.InitCore, args.w, args.split, 
                     core_match/(converge_sample_count+1e-8), exact_match/(converge_sample_count+1e-8),
