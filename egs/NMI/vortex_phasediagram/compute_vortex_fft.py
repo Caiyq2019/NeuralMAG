@@ -29,7 +29,7 @@ def load_unet_model(args):
 def initialize_models(args):
     # Model shape and save model
     test_model = create_model(args.w, args.modelshape)
-    path0 = "./fft/size{}/".format(args.w)+"pre_core{}/".format(args.pre_core)
+    path0 = "./fft/size{}/".format(args.w)+"InitCore{}/".format(args.InitCore)
     os.makedirs(path0, exist_ok=True)
     np.save(path0 + 'model', test_model[:,:,0])
 
@@ -99,7 +99,7 @@ if __name__ == '__main__':
     parser.add_argument('--w',          type=int,    default=32,        help='MAG model size (default: 32)')
     parser.add_argument('--layers',     type=int,    default=2,         help='MAG model layers (default: 2)')
     parser.add_argument('--split',      type=int,    default=1,         help='MAG model split (default: 1)')
-    parser.add_argument('--pre_core',   type=int,    default=0,         help='MAG model pre_core (default: 0)')
+    parser.add_argument('--InitCore',   type=int,    default=0,         help='MAG model InitCore (default: 0)')
     parser.add_argument('--modelshape', type=str,    default='square',  help='MAG model shape: square, circle, triangle')
     
     parser.add_argument('--Ms',         type=float,  default=1000,      help='MAG model Ms (default: 1000)')
