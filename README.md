@@ -65,9 +65,9 @@ By following these instructions, users can set up the necessary environment to r
 
 ## Example Execution [chrome browser preferred]
 
-[MH demo quick trial in Colab](https://colab.research.google.com/drive/1ppVSR1Wwan5zVr_lg4UfkjMbTWjlCMDw?usp=drive_link)
+[MH demo quick trial in Colab](https://colab.research.google.com/drive/1ppVSR1Wwan5zVr_lg4UfkjMbTWjlCMDw?usp=sharing)
 
-[Vortex demo quick trial in Colab](https://colab.research.google.com/drive/18YaOxSH2XWY4StrxsyacGeYwIxU-c-_E?usp=drive_link)
+[Vortex demo quick trial in Colab](https://colab.research.google.com/drive/18YaOxSH2XWY4StrxsyacGeYwIxU-c-_E?usp=sharing)
 
 ### Running MH Simulations
 
