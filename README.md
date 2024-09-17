@@ -217,7 +217,7 @@ To apply the trained model to micromagnetic simulations, replace the existing mo
 
 
 
-## Paper Citation
+## Citation
 
 ```
 
