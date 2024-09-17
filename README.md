@@ -63,7 +63,7 @@ This directory includes scripts for data generation, essential for training the 
 By following these instructions, users can set up the necessary environment to run simulations, replicate study findings, or train the Unet model with custom data.
 
 
-## Example Execution
+## Example Execution [chrome browser preferred]
 
 [MH demo quick trial in Colab](https://colab.research.google.com/drive/1ppVSR1Wwan5zVr_lg4UfkjMbTWjlCMDw?usp=drive_link)
 
@@ -76,7 +76,8 @@ By following these instructions, users can set up the necessary environment to r
 To expediently initiate the simulation of the MH curve for magnetic thin film materials, such as a material configured into a triangular shape with a dual-layer thickness, characterized by magnetic properties delineated by `{ --Ms 1000, --Ax 0.5e-6, --Ku 0.0 }`, please execute the following script:
 
 ```bash
-./egs/demo/MH/runMH.sh
+cd ./egs/demo/MH
+sh runMH.sh
 ```
 
 This script facilitates a comparative analysis of outcomes derived from FFT-based and Unet-based micromagnetic simulation frameworks.
@@ -87,7 +88,8 @@ This script facilitates a comparative analysis of outcomes derived from FFT-base
 To replicate the MH experimental results detailed in the manuscript, please use the following script:
 
 ```bash
-./egs/NMI/MH_evaluate/runMH.sh
+cd ./egs/NMI/MH_evaluate
+sh runMH.sh
 ```
 
 This script facilitates the adjustment of the film's dimensions via the `--width` parameter and is configured to test 13 unique combinations of magnetic property parameters:
@@ -117,7 +119,8 @@ Triangular film MH result | Film with a central hole MH result | Random polygona
 To commence a micromagnetic dynamical analysis based on the LLG (Landau-Lifshitz-Gilbert) equation from a random initial condition, execute:
 
 ```bash
-./egs/demo/vortex/run.sh
+cd ./egs/demo/vortex
+sh run.sh
 ```
 
 This command initiates a simulation applying FFT (Fast Fourier Transform) until the vortex count meets the `--InitCore` parameter's specification, whereupon Unet modeling commences. The `--InitCore` parameter signifies the initial vortex count for transitioning from FFT to Unet simulation.
@@ -127,7 +130,8 @@ This command initiates a simulation applying FFT (Fast Fourier Transform) until 
 For exact replication of the manuscript's vortex simulation outcomes, utilize:
 
 ```bash
-./egs/NMI/vortex_evaluate/run.sh
+cd ./egs/NMI/vortex_evaluate
+sh run.sh
 ```
 
 This script provides a detailed evaluation of Unet's prediction accuracy across initial vortex counts `--InitCore=5,10,20`, comparing results from 100 dynamical experiments per test condition to assess Unet's performance.
@@ -145,7 +149,8 @@ Varying Materials | Random Shapes | Square Films
 To assess the computational efficiency of micromagnetic simulations within distinct frameworks, the following command is recommended:
 
 ```bash
-./egs/NMI/speed_evaluate/run.sh
+cd ./egs/NMI/speed_evaluate
+sh run.sh
 ```
 
 This command facilitates the setup of comparative analyses for micromagnetic films of variable dimensions through the `--width` parameter. It systematically evaluates the computational demands of three distinct simulation frameworks:
@@ -166,7 +171,8 @@ This assessment elucidates the potential for efficiency gains and performance en
 The dataset referenced in our study is generated via:
 
 ```bash
-./utils/run.sh
+cd ./utils
+sh run.sh 
 ```
 
 The script automatically generates datasets in four sizes: 32, 64, 96, and 128. The first three sizes are for cross-scale training, while the 128 size assesses generalization across scales. Each size's dataset is developed under three conditions: a default square shape, and two scenarios involving random shape masks for augmentation, each additionally subjected to two magnitudes of external magnetic fields. Therefore, each size features three conditions with 100 cases each, facilitating a comprehensive evaluation of the model's robustness and scalability.
@@ -174,7 +180,9 @@ The script automatically generates datasets in four sizes: 32, 64, 96, and 128. 
 For data inspection and analysis, a visualization utility is provided:
 
 ```bash
-./utils/visualize_data.py
+cd 
+./utils
+python visualize_data.py
 ```
 
 Executing this script produces visual representations of the dataset, showcasing magnetic vector fields, RGB imagery, and histograms of numerical statistics, thereby facilitating a comprehensive overview of the training data's characteristics.
@@ -193,7 +201,8 @@ demagnetizing field vector | demagnetizing field RGB | demagnetizing field histo
 Once the data is prepared, you can commence training your own Unet model by executing:
 
 ```bash
-./egs/demo/train/run_train.sh
+cd ./egs/demo/train
+sh run_train.sh
 ```
 
 Adjust the volume of training data with `--ntrain` and set the test dataset size via `--ntest`. Training hyperparameters including `--batch-size`, `--lr` (learning rate), and `--epochs` are customizable to optimize performance, though default settings are provided to replicate manuscript results. Parameters `--kc` and `--inch`, crucial for the model's network architecture, remain fixed to preserve model dimensions. Training generates automated logs of model progress, including intermediate models, convergence metrics, and performance evaluations.
@@ -212,16 +221,14 @@ To apply the trained model to micromagnetic simulations, replace the existing mo
 
 ```
 
-@Article{,
- AUTHOR = {, , , },
- TITLE = { },
- JOURNAL = {  },
- VOLUME = {},
- YEAR = {2024},
- NUMBER = {},
- ARTICLE-NUMBER = {},
- URL = {https://www.},
- DOI = {10.}
+@misc{NeuralMAG2024,
+  author = {Caiyq and Ijin08},
+  title = {NeuralMAG: Initial Release v1.0.0},
+  year = {2024},
+  publisher = {Zenodo},
+  version = {1.0.0},
+  doi = {10.5281/zenodo.13736224},
+  url = {https://doi.org/10.5281/zenodo.13736224}
 }
 
 ```
