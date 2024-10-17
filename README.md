@@ -161,7 +161,24 @@ This command facilitates the setup of comparative analyses for micromagnetic fil
 
 This assessment elucidates the potential for efficiency gains and performance enhancements through the adoption of deep learning and acceleration technologies in micromagnetic simulation workflows.
 
-### standproblem
+### Standard Problems
+
+The [standard problems](https://www.ctcms.nist.gov/~rdm/mumag.org.html) are proposed by micromagnetic modeling activity group ($\mu$MAG in NIST, USA), allowing micromagnetic researchers to "compare techniques, identify problems, and detect programming bugs".
+
+In current version of NeuralMAG, the problems \#1 and \#4 designed for magnetic thin films could be verified. 
+The simulation demo for the standard problem \#1 could be launched via following commands:
+
+```bash
+# Standard problem #1
+cd ./egs/NMI/standard_problem1
+sh run.sh
+```
+and for standard problem \#4:
+```bash
+# Standard problem #4
+cd ./egs/NMI/standard_problem4
+sh run.sh
+```
 
 
 ### Data Generation and Model Training Process
