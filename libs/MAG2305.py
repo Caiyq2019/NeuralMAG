@@ -2,9 +2,16 @@
 """
 Created on Thu Nov 24 21:38:01 2022
 
+Author: Li, Jiangnan
+        Kunming University of Science and Technology (KUST)
+
+Email : li-jn12@tsinghua.org.cn
+
 -------------------
 
 MAG2305 : An FDM-FFT micromagnetic simulator
+          Originated from MAG Group led by
+          Prof. Dan Wei in Tsinghua University
 
 Library version : numpy   1.25.0
                   pytorch 2.0.1
@@ -14,7 +21,7 @@ Library version : numpy   1.25.0
 """
 
 
-__version__ = 'UnetHd_Public_2023.10.18'
+__version__ = 'UnetHd_Public_2024.10.17'
 print('MAG2305 version: {:s}\n'.format(__version__))
 
 
@@ -27,15 +34,15 @@ import sys
 # Load Unet model
 # =============================================================================
 def load_model(m):
-    global model
-    model = m
+    global _ckpt_model
+    _ckpt_model = m
 
 def MFNN(spin):
-    model.eval()
+    _ckpt_model.eval()
     with torch.no_grad():
         spin = spin.permute(2,3,0,1)
         spin = spin.view(1, -1, spin.size(2), spin.size(3))
-        return model(spin).permute(2,3,0,1).view(spin.size(2), spin.size(3), -1, 3)
+        return _ckpt_model(spin).permute(2,3,0,1).view(spin.size(2), spin.size(3), -1, 3)
 
 
 # =============================================================================
@@ -498,46 +505,46 @@ class mmModel():
             Hk0[ self.model == i+1 ] = np.sqrt(2.0 * self.Ku[i] / self.Ms[i]) * self.Kvec[i] \
                                        if self.Ms[i] != 0.0 else 0.0
 
-        Hx0 = np.zeros( (6,) + tuple(self.size) + (3,) )
+        Hx0 = np.zeros( (6,3) + tuple(self.size) )
         Ax = np.zeros_like(Msmx)
         for i in range(self.Nmats):
             Ax[ self.model == i+1 ] = self.Ax[i] if self.Ms[i] !=0.0 else 0.0
 
         Ax_nb = numpy_roll(Ax, shift= 1, axis=0, pbc=self.pbc[0])
         for l in range(3):
-            Hx0[0,...,l] = np.divide( 4.0 * 1.0e14 * Ax * Ax_nb,
-                                     Msmx * (Ax + Ax_nb) * self.cell[0]**2, 
-                                     where= (Msmx!=0) )
+            np.divide( 4.0 * 1.0e14 * Ax * Ax_nb,
+                       Msmx * (Ax + Ax_nb) * self.cell[0]**2, 
+                       where= (Msmx!=0), out=Hx0[0,l] )
 
         Ax_nb = numpy_roll(Ax, shift=-1, axis=0, pbc=self.pbc[0])
         for l in range(3):
-            Hx0[1,...,l] = np.divide( 4.0 * 1.0e14 * Ax * Ax_nb,
-                                     Msmx * (Ax + Ax_nb) * self.cell[0]**2, 
-                                     where= (Msmx!=0) )
+            np.divide( 4.0 * 1.0e14 * Ax * Ax_nb,
+                       Msmx * (Ax + Ax_nb) * self.cell[0]**2, 
+                       where= (Msmx!=0), out=Hx0[1,l] )
 
         Ax_nb = numpy_roll(Ax, shift= 1, axis=1, pbc=self.pbc[1])
         for l in range(3):
-            Hx0[2,...,l] = np.divide( 4.0 * 1.0e14 * Ax * Ax_nb,
-                                     Msmx * (Ax + Ax_nb) * self.cell[1]**2, 
-                                     where= (Msmx!=0) )
+            np.divide( 4.0 * 1.0e14 * Ax * Ax_nb,
+                       Msmx * (Ax + Ax_nb) * self.cell[1]**2, 
+                       where= (Msmx!=0), out=Hx0[2,l] )
 
         Ax_nb = numpy_roll(Ax, shift=-1, axis=1, pbc=self.pbc[1])
         for l in range(3):
-            Hx0[3,...,l] = np.divide( 4.0 * 1.0e14 * Ax * Ax_nb,
-                                     Msmx * (Ax + Ax_nb) * self.cell[1]**2, 
-                                     where= (Msmx!=0) )
+            np.divide( 4.0 * 1.0e14 * Ax * Ax_nb,
+                       Msmx * (Ax + Ax_nb) * self.cell[1]**2, 
+                       where= (Msmx!=0), out=Hx0[3,l] )
 
         Ax_nb = numpy_roll(Ax, shift= 1, axis=2, pbc=self.pbc[2])
         for l in range(3):
-            Hx0[4,...,l] = np.divide( 4.0 * 1.0e14 * Ax * Ax_nb,
-                                     Msmx * (Ax + Ax_nb) * self.cell[2]**2, 
-                                     where= (Msmx!=0) )
+            np.divide( 4.0 * 1.0e14 * Ax * Ax_nb,
+                       Msmx * (Ax + Ax_nb) * self.cell[2]**2, 
+                       where= (Msmx!=0), out=Hx0[4,l] )
 
         Ax_nb = numpy_roll(Ax, shift=-1, axis=2, pbc=self.pbc[2])
         for l in range(3):
-            Hx0[5,...,l] = np.divide( 4.0 * 1.0e14 * Ax * Ax_nb,
-                                     Msmx * (Ax + Ax_nb) * self.cell[2]**2, 
-                                     where= (Msmx!=0) )
+            np.divide( 4.0 * 1.0e14 * Ax * Ax_nb,
+                       Msmx * (Ax + Ax_nb) * self.cell[2]**2, 
+                       where= (Msmx!=0), out=Hx0[5,l] )
 
         # Simple statistic
         self.Msavg = Msmx.sum() / self.Ncells
@@ -556,7 +563,7 @@ class mmModel():
         # Torch tensors
         self.Msmx = torch.Tensor(Msmx).to(self.device)
         self.Hk0  = torch.Tensor(Hk0).to(self.device)
-        self.Hx0  = torch.Tensor(Hx0).to(self.device)
+        self.Hx0  = torch.Tensor(Hx0.transpose(0,2,3,4,1)).to(self.device)
 
         return None
 
